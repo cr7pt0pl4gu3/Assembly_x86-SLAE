@@ -11,8 +11,8 @@ _start:
 
     mov eax, 0x4
     mov ebx, 0x1
-    mov ecx, message
-    mov edx, mlen
+    lea ecx, [message]
+    lea edx, [mlen]
     int 0x80
 
     ; exits the program
