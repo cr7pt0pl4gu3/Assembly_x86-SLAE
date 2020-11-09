@@ -1,4 +1,4 @@
-; HelloWorld.asm
+; HelloWorld.nasm
 ; Author: Ravehorn
 
 global _start
