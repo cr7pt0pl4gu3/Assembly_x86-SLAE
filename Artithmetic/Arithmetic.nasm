@@ -7,7 +7,7 @@ section .text
 
 _start:
 
-    ; register based addition
+    ; variable based addition
 
     mov eax, 0x0
     add byte [var1], 0x4
