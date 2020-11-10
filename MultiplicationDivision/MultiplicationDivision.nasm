@@ -1,4 +1,4 @@
-; Mul&Divide.nasm
+; MultiplicationDivision.nasm
 ; Author: Ravehorn
 
 global _start
