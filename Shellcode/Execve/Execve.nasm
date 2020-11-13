@@ -17,7 +17,7 @@ _start:
     mov ebx, esp
 
     push eax
-    mov eax, esp
+    mov edx, esp
 
     push ebx
     mov ecx, esp
