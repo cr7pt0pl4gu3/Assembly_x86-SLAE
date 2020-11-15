@@ -15,8 +15,9 @@ decoder:
     
 decode:
 
+    cmp byte [esi], 0xaa
+    je shellcode
     not byte [esi]
-    jz shellcode
     inc esi
     jmp short decode
 
