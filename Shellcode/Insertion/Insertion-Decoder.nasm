@@ -20,7 +20,7 @@ decoder:
 decode:
 
     mov bl, byte [esi + eax]
-    xor bl, 0xa
+    xor bl, 0xaa
     jnz short shellcode
     mov bl, byte [esi + eax + 1]
     mov byte [edi], bl

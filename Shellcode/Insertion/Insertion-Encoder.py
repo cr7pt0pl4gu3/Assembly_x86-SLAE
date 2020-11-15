@@ -12,11 +12,11 @@ for x in bytearray(shellcode):
 
     encoded += "\\x"
     encoded += "%02x" % x
-    encoded += "\\x%02x" % 0xaa
+    encoded += "\\x%02x" % 0xAA
 
     encoded2 += "0x"
     encoded2 += "%02x, " % x
-    encoded2 += "0x%02x, " % 0xaa
+    encoded2 += "0x%02x, " % 0xAA
 
 print("Verison 1:", encoded, "\n")
 print("Verison 2:", encoded2[:-2], "\n")
