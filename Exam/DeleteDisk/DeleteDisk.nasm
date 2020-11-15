@@ -10,8 +10,8 @@ _start:
     xor eax, eax            ;create null eax register
     push eax                ;push null eax register to the stack
 
-    push 0x736c2f2f         ;push command to the stack
-    push 0x6e69622f         ;"/bin//ls"
+    push 0x6d722f6e         ;push command to the stack
+    push 0x69622f2f         ;"//bin/rm"
     mov ebx, esp            ;move pointer to command into ebx
 
     push eax                ;push null eax register to the stack
