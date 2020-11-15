@@ -10,14 +10,14 @@ print("Encoding shellcode...\n")
 
 for x in bytearray(shellcode):
     # XOR
-    y = x ^ 0xAA
+    y = x ^ 0xaa
 
     # NOT
     y = ~y
     y = y & 0xff
 
-    # Shift Right 0x1
-    y = y >> 0x1
+    # XOR 0xbb
+    y = y ^ 0xbb
 
     c_format += "\\x"
     c_format += "%02x" % y
@@ -26,8 +26,8 @@ for x in bytearray(shellcode):
     asm_format += "%02x, " % y
 
 # Adding null instruction
-c_format += "\\x7f"
-asm_format += "0x7f"
+c_format += "\\x44"
+asm_format += "0x44"
 
 print("C version:", c_format, "\n")
 print("ASM version:", asm_format, "\n")
