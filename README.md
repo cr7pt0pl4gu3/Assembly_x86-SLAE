@@ -17,4 +17,4 @@ How to encode shellcode with msfvenom:
 
 2. For executable:
 
-    echo -ne "YOUR_SHELLCODE" | sudo msfvenom -a x86 --format elf --platform Linux -e x86/shikata_ga_nai -c 10 > payload
+    echo -ne "YOUR_SHELLCODE" | sudo msfvenom -a x86 --format elf --platform Linux -e x86/shikata_ga_nai -c 10 > payload && chmod +x payload
