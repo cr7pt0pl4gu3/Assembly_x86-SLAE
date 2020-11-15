@@ -26,7 +26,7 @@ _start:
 
     push eax
 
-    ; push --no-preserve-root to the stack and save it into edx
+    ; push --no-preserve-root to the stack and save it into edx!
 
     push 0x746f
     push 0x6f722d65
