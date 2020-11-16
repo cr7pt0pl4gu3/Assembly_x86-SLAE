@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <openssl/md5.h>
 
 void print_array(unsigned char *shellcode, long unsigned int arr_size) {
     for (int i = 0; i < arr_size; i++) {
@@ -10,9 +11,24 @@ void print_array(unsigned char *shellcode, long unsigned int arr_size) {
     printf("\n");
 }
 
+void generate_md5(unsigned char *key) {
+    MD5_CTX md5handler;
+    unsigned char md5digest[MD5_DIGEST_LENGTH];
+    char buffer[2];
+    sprintf(buffer, "%x", *key);
+    MD5(buffer, sizeof(buffer), md5digest);
+    printf("\nKey MD5:");
+    for (int i = 0;i < MD5_DIGEST_LENGTH; i++) {
+        printf("%02x", md5digest[i]);
+    }
+    printf("\n");
+}
+
 unsigned char generate_key() {
     srand(time(0));
     unsigned char key = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[random () % 26] + "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[random () % 26];
+    printf("Generating key:%x", key);
+    generate_md5(&key);
     return key;
 }
 
@@ -31,9 +47,8 @@ int main(void) {
     printf("Shellcode before encryption:");
     print_array(shellcode, sizeof(shellcode));
     
-    printf("Generating key:");
+    
     unsigned char key = generate_key();
-    printf("%x\n", key);
 
     printf("Encrypted shellcode:");
     encrypt(shellcode, sizeof(shellcode), &key);
